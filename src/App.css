@@ -7,6 +7,18 @@
   pointer-events: none;
 }
 
+.link-container {
+  width: 15vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.flags {
+  width: 150px;
+  height: 150px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -25,7 +37,13 @@
 }
 
 .App-link {
+  cursor: pointer;
+}
+.selected {
   color: #61dafb;
+}
+.unselected {
+  color: gray;
 }
 
 @keyframes App-logo-spin {

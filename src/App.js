@@ -1,23 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import us from "./assets/images/us.png";
+import mx from "./assets/images/mx.png";
+import "./App.css";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const username = "Beto";
+  const { i18n, t } = useTranslation();
+  const changeLaguage = (language) => {
+    i18n.changeLanguage(language);
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img
+          src={i18n.language === "es" ? mx : us}
+          className="flags"
+          alt="mxlogo"
+        />
+        <p>{t("welcome")}</p>
+        <p>{`${t("name")} : ${username}`}</p>
+        <p>{t("thanks")}</p>
+        <p>{t("select")}</p>
+        <div className="link-container">
+          <p
+            className={`App-link ${
+              i18n.language === "es" ? "selected" : "unselected"
+            }`}
+            onClick={() => changeLaguage("es")}
+          >
+            🇲🇽
+          </p>
+          <p
+            className={`App-link ${
+              i18n.language === "en" ? "selected" : "unselected"
+            }`}
+            onClick={() => changeLaguage("en")}
+          >
+            🇺🇸
+          </p>
+        </div>
       </header>
     </div>
   );

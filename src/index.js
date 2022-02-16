@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
@@ -11,7 +12,9 @@ import i18n from "./config/localization/i18n";
 ReactDOM.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18n}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </I18nextProvider>
   </React.StrictMode>,
   document.getElementById("root")
